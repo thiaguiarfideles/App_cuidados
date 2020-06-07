@@ -1,0 +1,5 @@
+('Hospital_Barra_DOr', 'Hospital_Barra_DOr'),
+('Hospital_Barra_DOr', 'Hospital_Pasteur'),
+('Hospital_Barra_DOr', 'Hospital_Samaritano_Barra'),
+('Hospital_Barra_DOr', 'Hospital_Samaritano_Botafogo'),
+

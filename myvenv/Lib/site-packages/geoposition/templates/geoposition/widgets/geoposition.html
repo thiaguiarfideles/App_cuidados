@@ -1,0 +1,7 @@
+{% load l10n %}
+<div class="geoposition-widget" id="{{widget.attrs.id}}" data-map-widget-height="{{ widget.config.map_widget_height }}" data-map-options='{{ widget.config.map_options }}' data-marker-options='{{ widget.config.marker_options }}'>
+    {{ widget.latitude.label|capfirst }}:
+    <input type="text" name="{{widget.name}}_0" class="{{widget.attrs.class}}" value="{{ widget.latitude.html|unlocalize }}" />
+    {{ widget.longitude.label|capfirst }}:
+    <input type="text" name="{{widget.name}}_1" class="{{widget.attrs.class}}" value="{{ widget.longitude.html|unlocalize }}" />
+</div>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+     <h1 class="text-center">Cadastrar Pacientes</h1>
+     
+     <form enctype="multipart/form-data" action="submit", method="POST">{% csrf_token %}
+     <div class="container">
+     	<div class="form-group">
+     		<label>E-mail</label>
+     	    <input class="form-control" name="Email" type="text">
+      </div>
+        <div class="form-group">
+     		<label>Telefone:</label>
+     	    <input class="form-control" name="Telefone" type="number">
+      </div>
+        <div class="form-group">
+     		<label>Nome Completo:</label>
+     	    <input class="form-control" name="Paciente" type="text">
+      </div>
+        <div class="form-group">
+     		<label for="description">Descrição</label>
+     	    <textarea class="form-control" rows="5" name="description"></textarea>
+      </div>
+        <div class="form-group">
+        	<input type="file" class="form-control-file border" name="file" accept="image/*"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">
+        	Cadastrar
+        </button>
+        
+        </form>
+
+     </div>
+
+{% endblock %}     

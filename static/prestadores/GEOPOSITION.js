@@ -1,0 +1,5 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<form method="POST" action="">{% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+</form>

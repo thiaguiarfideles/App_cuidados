@@ -1,0 +1,200 @@
+/* 
+    Project    : sTimeline
+    Author     : Sascha Mander
+    Website    : http://sascha-mander.de
+    File       : sTimeline.css
+*/
+.timeline {
+    list-style: outside none none;
+    padding: 20px 0;
+    position: relative;
+}
+
+.timeline:before {
+    background-color: rgb(238, 238, 238);
+    bottom: 0;
+    content: " ";
+    left: 50%;
+    margin-left: -1.5px;
+    position: absolute;
+    top: 0;
+    width: 3px;
+}
+
+.timeline > li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline > li:before, .timeline > li:after {
+    content: " ";
+    display: table;
+}
+
+.timeline > li:after {
+    clear: both;
+}
+
+.timeline > li:before, .timeline > li:after {
+    content: " ";
+    display: table;
+}
+
+.timeline > li:after {
+    clear: both;
+}
+
+.timeline .event:after{
+    margin-bottom: 60px;
+}
+
+.timeline > li.toggled > .timeline-badge{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.timeline > li.toggled > .timeline-badge{
+    border: 3px solid rgb(255, 255, 255) !important;
+}
+
+.timeline > li > .timeline-panel {
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 2px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.176);
+    float: left;
+    padding: 20px;
+    position: relative;
+    width: 46%;
+}
+
+.timeline > li > .timeline-panel:before {
+    border-color: rgba(0, 0, 0, 0) rgb(204, 204, 204);
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    right: -15px;
+    top: 26px;
+}
+
+.timeline > li > .timeline-panel:after {
+    border-color: rgba(0, 0, 0, 0) rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 14px 0 14px 14px;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    right: -14px;
+    top: 27px;
+}
+
+.timeline > li > .timeline-badge,
+.filter-group > .timeline-badge{
+    cursor: pointer;
+    background-color: rgb(153, 153, 153);
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    font-size: 1.4em;
+    height: 50px;
+    left: 50%;
+    line-height: 50px;
+    margin-left: -25px;
+    position: absolute;
+    text-align: center;
+    top: 16px;
+    width: 50px;
+    z-index: 100;
+    transition: all ease-in-out 250ms;
+}
+
+.filter-group > .timeline-badge{
+    display: inline-block;
+    margin-left: 20px;
+    position: relative;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+}
+
+.timeline-badge.primary {
+    background-color: rgb(46, 109, 164) !important;
+}
+
+.timeline-badge.success {
+    background-color: rgb(63, 144, 63) !important;
+}
+
+.timeline-badge.warning {
+    background-color: rgb(240, 173, 78) !important;
+}
+
+.timeline-badge.danger {
+    background-color: rgb(217, 83, 79) !important;
+}
+
+.timeline-badge.info {
+    background-color: rgb(91, 192, 222) !important;
+}
+
+.timeline-title {
+    color: inherit;
+    margin-top: 0;
+}
+
+.timeline-body > p, .timeline-body > ul {
+    margin-bottom: 0;
+}
+
+.timeline-body > p + p {
+    margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+    ul.timeline:before {
+        left: 40px;
+    }
+    
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 90px);
+    }
+    
+    ul.timeline > li > .timeline-badge {
+        left: 15px;
+        margin-left: 0;
+        top: 16px;
+    }
+    
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+    
+    ul.timeline > li > .timeline-panel:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+    }
+    
+    ul.timeline > li > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+    }
+}
