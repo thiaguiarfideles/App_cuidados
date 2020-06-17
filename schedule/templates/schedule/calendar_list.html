@@ -1,0 +1,36 @@
+{% extends "base_calendar.html" %}
+{% load i18n %}
+{% block head_title %}{% trans "Available Calendars" %}{% endblock %}
+{% block body %}
+<h2>{% trans "Available Calendars" %}</h2>
+
+
+{% for cal in object_list %}
+<li><b>{{ cal }}</b> :
+  <a href="{% url "compact_calendar" cal.slug %}">{% trans "Mês pequeno" %}</a> --
+  <a href="{% url "month_calendar" cal.slug %}">{% trans "1 Month" %}</a> --
+  <a href="{% url "tri_month_calendar" cal.slug %}">{% trans "3 Months" %}</a> --
+  <a href="{% url "year_calendar" cal.slug %}">{% trans "This Year" %}</a> --
+  <a href="{% url "week_calendar" cal.slug %}">{% trans "Weekly" %}</a> --
+  <a href="{% url "day_calendar" cal.slug %}">{% trans "Daily" %}</a> --
+  <a href="{% url "upcoming_events_feed" cal.id %}">{% trans "Feed" %}</a></li><br>
+
+  	<div class="card-columns">
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <p class="card-text">Visualize sua agenda diaria</p>
+        <a href="{% url "day_calendar" cal.slug %}" class="btn btn-primary">{% trans "Agenda do Dia" %}</a>
+      </div>
+  </div>
+     <div class="card bg-warning">
+      <div class="card-body text-center">
+        <p class="card-text">Visualize sua agenda semanal</p>
+        <a href="{% url "week_calendar" cal.slug %}" class="btn btn-primary">{% trans "Agenda Semanal" %}</a>
+      </div>
+  </div>
+
+    </div>
+
+{% endfor %}
+
+{% endblock %}

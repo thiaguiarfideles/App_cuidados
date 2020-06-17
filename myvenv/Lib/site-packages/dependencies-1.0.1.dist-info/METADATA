@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: dependencies
+Version: 1.0.1
+Summary: Dependency Injection for Humans
+Home-page: https://dry-python.org/
+License: BSD-2-Clause
+Keywords: di,dependency injection,ioc,inversion of control,architecture,design-patterns
+Author: Artem Malyshev
+Author-email: proofit404@gmail.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Project-URL: Documentation, https://dependencies.readthedocs.io/
+Project-URL: Repository, https://github.com/dry-python/dependencies/
+Description-Content-Type: text/markdown
+
+![logo](https://raw.githubusercontent.com/dry-python/brand/master/logo/dependencies.png)
+
+[![azure-pipeline](https://dev.azure.com/dry-python/dependencies/_apis/build/status/dry-python.dependencies?branchName=master)](https://dev.azure.com/dry-python/dependencies/_build/latest?definitionId=2&branchName=master)
+[![codecov](https://codecov.io/gh/dry-python/dependencies/branch/master/graph/badge.svg)](https://codecov.io/gh/dry-python/dependencies)
+[![docs](https://readthedocs.org/projects/dependencies/badge/?version=latest)](https://dependencies.readthedocs.io/en/latest/?badge=latest)
+[![gitter](https://badges.gitter.im/dry-python/dependencies.svg)](https://gitter.im/dry-python/dependencies)
+[![pypi](https://img.shields.io/pypi/v/dependencies.svg)](https://pypi.python.org/pypi/dependencies/)
+[![conda-forge](https://img.shields.io/conda/vn/conda-forge/dependencies.svg)](https://anaconda.org/conda-forge/dependencies)
+[![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
+---
+
+# Dependency Injection for Humans
+
+- [Source Code](https://github.com/dry-python/dependencies)
+- [Issue Tracker](https://github.com/dry-python/dependencies/issues)
+- [Documentation](https://dependencies.readthedocs.io/en/latest/)
+- [Newsletter](https://twitter.com/dry_py)
+- [Discussion](https://gitter.im/dry-python/dependencies)
+
+## Installation
+
+All released versions are hosted on the Python Package Index. You can
+install this package with following command.
+
+```bash
+pip install dependencies
+```
+
+## Usage
+
+Dependency injection without `dependencies`
+
+```pycon
+
+>>> from examples import Robot, Servo, Amplifier, Controller, Settings
+
+>>> robot = Robot(
+...     servo=Servo(amplifier=Amplifier()),
+...     controller=Controller(),
+...     settings=Settings(environment="production"),
+... )
+
+>>> robot.work()
+
+```
+
+Dependency injection with `dependencies`
+
+```pycon
+
+>>> from dependencies import Injector
+
+>>> class Container(Injector):
+...     robot = Robot
+...     servo = Servo
+...     amplifier = Amplifier
+...     controller = Controller
+...     settings = Settings
+...     environment = "production"
+
+>>> Container.robot.work()
+
+```
+
+## License
+
+Dependencies library is offered under the two clause BSD license.
+
+<p align="center">&mdash; ⭐️ &mdash;</p>
+<p align="center"><i>Drylabs maintains dry-python and helps those who want to use it inside their organizations.</i></p>
+<p align="center"><i>Read more at <a href="https://drylabs.io">drylabs.io</a></i></p>
+

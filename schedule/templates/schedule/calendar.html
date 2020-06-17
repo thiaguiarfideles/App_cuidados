@@ -1,0 +1,76 @@
+{% extends "base_calendar.html" %}
+{% load i18n %}
+
+
+{% block body %}
+
+<h1>{% trans "Calendario" %}</h1>
+
+
+<div>
+    <p>{% trans "Nome:" %} {{calendar_name}} </p>
+    <p>{% trans "Contagem de eventos:" %} {{events_count}} </p>
+    <ul>
+    <div class="col-sm-5">
+    <div class="card border-success mb-3">
+      <div class="card-body text-danger">
+        <p class="card-text">Visualize sua agenda diaria</p>
+        <a href="{% url "day_calendar" calendar.slug %}" class="btn btn-primary">{% trans "Agenda do Dia" %}</a>
+      </div>
+  </div>
+</div>
+    </ul>
+    <ul>
+    <div class="col-sm-5">
+    <div class="card border-success mb-3">
+      <div class="card-body text-success">
+        <p class="card-text">Visualize sua agenda semanal</p>
+        <a href="{% url "week_calendar" calendar.slug %}" class="btn btn-primary">{% trans "Agenda Semanal" %}</a>
+      </div>
+  </div>
+</div>
+    </ul>
+    <ul>
+  <div class="col-sm-5">
+    <div class="card border-success mb-3">
+      <div class="card-body text-primary">
+        <p class="card-text">Visualize os dias agendados no mês</p>
+        <a href="{% url "compact_calendar" calendar.slug %}" class="btn btn-primary">{% trans "Mês Incompleto" %}</a>
+      </div>
+  </div>
+    </ul>
+   <ul>
+  <div class="col-sm-5">
+    <div class="card border-success mb-3">
+      <div class="card-body text-primary">
+        <p class="card-text">Visualize sua agenda do mês completo</p>
+        <a href="{% url "month_calendar" calendar.slug %}" class="btn btn-primary">{% trans "Mês Completo" %}</a>
+      </div>
+  </div>
+</div>
+    </ul>
+    <ul>
+  <div class="col-sm-5 ">
+    <div class="card border-success mb-3">
+      <div class="card-body text-primary">
+        <p class="card-text">Visualize sua agenda trimestral</p>
+        <a href="{% url "tri_month_calendar" calendar.slug %}" class="btn btn-primary">{% trans "3 Mêses" %}</a>
+      </div>
+  </div>
+</div>
+    </ul>
+    <ul>
+    <div class="col-sm-5">
+    <div class="card border-success mb-3">
+      <div class="card-body text-primary">
+        <p class="card-text">Visualize sua agenda anual</p>
+        <a href="{% url "year_calendar" calendar.slug %}" class="btn btn-primary">{% trans "Este ano" %}</a>
+      </div>
+  </div>
+</div>
+    </ul>
+    <u>
+    
+{% endblock %}
+
+    

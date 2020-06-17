@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load model_field %}
+
+{% block content %}
+<h1>Cadastro Profissional{{cadastro.status}}</h1>
+    <div class='row'>
+    <div class='col-sm-10 col-sm-offset-1'>
+        <table class="table table-hover table-auto">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Data de Envio</th>
+                <th>Horário de Envio</th>
+                <th>Email</th>
+                <th>CRM</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{cadastro.status}}</td>
+                    <td>{{cadastro.created_at|date:"d/m/Y"}}</td>
+                    <td>{{cadastro.created_at|time:"h:i:s"}}</td>
+                    <td>{{cadastro.ds_email}}</td>
+                    <td>{{cadastro.ds_codigo_conselho}}</td>
+                </tr>
+        </table>
+    </div>
+    </div>
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-1'>
+
+        <table class="table thead-dark table-auto">
+            <tbody>
+                <tr>
+                    <td>É Cuidador?</td>
+                    <td>{{cadastro.sn_cuidador|yesno:"Sim,Não,Não preenchido"}}</td>
+                </tr>
+                <tr>
+                    <td>É Paciente?</td>
+                    <td>{{cadastro.sn_paciente|yesno:"Sim,Não,Não preenchido"}}</td>
+                </tr>
+                <tr>
+                    <td>CRM</td>
+                    <td>{{cadastro.ds_codigo_conselho}}</td>
+                </tr>
+                <tr>
+                    <td>{% model_field_verbose_name from cadastro.ds_codigo_conselho %}</td>
+                    <td>{{cadastro.ds_codigo_conselho}}</td>
+                </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nm_prestador %}</td>
+                    <td>{{cadastro.nm_prestador}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.medico_responsavel %}</td>
+                    <td>{{cadastro.medico_responsavel}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.hospital_referencia %}</td>
+                    <td>{{cadastro.hospital_referencia}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.convenio %}</td>
+                    <td>{{cadastro.convenio}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.doenca_base %}</td>
+                    <td>{{cadastro.doenca_base}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.medicamento %}</td>
+                    <td>{{cadastro.medicamento}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.horarios_medicacao %}</td>
+                    <td>{{cadastro.horarios_medicacao}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.peso %}</td>
+                    <td>{{cadastro.peso}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.altura %}</td>
+                    <td>{{cadastro.altura}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.temperatura %}</td>
+                    <td>{{cadastro.temperatura}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.glicemia %}</td>
+                    <td>{{cadastro.glicemia}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.frequencia_cardiaca %}</td>
+                    <td>{{cadastro.frequencia_cardiaca}}</td>
+               </tr>
+               <tr>
+                   <tr>
+                    <td>Alergico?</td>
+                    <td>{{cadastro.sn_alergia|yesno:"Sim,Não,Não preenchido"}}</td>
+                </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.tipo_alergia %}</td>
+                    <td>{{cadastro.tipo_alergia|
+                    yesno:"Alimento,Sim,Não,
+                           Medicamento,Sim,Não,
+                           Fatores Externos,Sim,Não"}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nivel_alergia %}</td>
+                   <td>{{cadastro.nivel_alergia}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.dt_nascimento %}</td>
+                   <td>{{cadastro.dt_nascimento}}</td>
+               </tr>               
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.ds_email %}</td>
+                   <td>{{cadastro.ds_email}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nr_cep %}</td>
+                   <td>{{cadastro.nr_cep}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.ds_endereco %}</td>
+                   <td>{{cadastro.ds_endereco}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.ds_complemento %}</td>
+                   <td>{{cadastro.ds_complemento}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.ds_bairro %}</td>
+                   <td>{{cadastro.ds_bairro}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nm_cidade %}</td>
+                   <td>{{cadastro.nm_cidade}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.cd_uf %}</td>
+                   <td>{{cadastro.cd_uf}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.banco %}</td>
+                   <td>{{cadastro.banco}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.ds_agencia %}</td>
+                   <td>{{cadastro.ds_agencia}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nr_conta %}</td>
+                   <td>{{cadastro.nr_conta}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.nr_fone_contato %}</td>
+                   <td>{{cadastro.nr_fone_contato}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.observacoes %}</td>
+                   <td>{{cadastro.observacoes}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.identidade_frente %}</td>
+                   <td>{{cadastro.identidade_frente}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.identidade_verso %}</td>
+                   <td>{{cadastro.identidade_verso}}</td>
+               </tr>
+               <tr>
+                   <td>{% model_field_verbose_name from cadastro.comprovante_residencia %}</td>
+                   <td>{{cadastro.comprovante_residencia}}</td>
+               </tr>
+               </tbody>
+        </table>
+</div>
+
+{% endblock %}

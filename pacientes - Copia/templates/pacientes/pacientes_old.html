@@ -1,0 +1,520 @@
+{% extends "base.html" %}
+{% load model_field %}
+
+{% block content %}
+
+            <thead>
+
+            </thead>
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-1'>
+
+            <tbody>
+                <div class="container-md mt-3 border">
+    <div class="row">
+      <h1>Acompanhamento do paciente!</h1>
+<form method="post" id="DadosPacienteForm" novalidate>{% csrf_token %}
+  <input type='hidden' name='csrfmiddlewaretoken' value='NGLsvGUpsmftVuHY3BoYBDukhVR0SgIeioZ9OZpM1uUgLVeQpGUWL60XA0SpAYAQ' />
+
+        <div class="form-row">
+            <div>
+          <div class="form-group col-md-5">
+            <p><label for="id_nome">Nome:</label> <input class="form-control" type="text" name="nome" maxlength="50" required
+                id="id_nome" /></p>
+          </div>
+          <div class="form-group col-md-5">
+            <p><label for="id_medico">Nome Medico:</label> <input class="form-control" type="text" name="medico" maxlength="100"
+                id="id_medico" /></p>
+          </div>            
+          <div class="form-group col-md-3">
+            <p><label for="id_email">Email:</label> <input class="form-control" type="email" name="email" maxlength="200"
+                id="id_email" /></p>      
+          </div>
+          <div class="form-group col-md-3">
+            <p><label for="id_cidade">Cidade:</label> <input class="form-control" type="text" name="cidade" maxlength="200"
+                id="id_cidade" /></p>
+          </div>
+          </div>
+         </div>
+
+              <div class="form-group col-md-3">
+              <p><label for="id_peso">Peso:</label> <input class="form-control" type="text" name="peso" maxlength="30" id="id_peso"
+                /></p>
+            </div>
+            <div class="form-group col-md-3">
+              <p><label for="id_altura">Altura:</label> <input class="form-control" type="number" name="altura" step="0.01"
+                  id="id_altura" /></p>
+            </div>
+            <div class="form-group col-md-3">
+              <p><label for="id_idade">Idade:</label> <input class="form-control" type="number" name="idade" step="0.01"
+                  id="id_idade" /></p>
+            </div>
+            <div class="form-group col-md-3">
+              <p><label for="id_sexo">Sexo:</label> <select class="form-control" type="text" name="sexo" step="0.01"
+                  id="id_sexo" /></p>
+                  <option value="" selected>---------</option>
+
+                  <option value="1">Masculino</option>
+
+                  <option value="2">Feminino</option>
+
+            </select></p>
+        </div>
+            <div class="form-group col-md-3">
+              <p><label for="id_precaucao">Precaução:</label> <select class="form-control" type="text" name="precaucao" step="0.01"
+                  id="id_precaucao" /></p>
+                  <option value="" selected>---------</option>
+
+                  <option value="1">SIM</option>
+
+                  <option value="2">NÃO</option>
+
+                  </select></p>
+            </div>
+            <div class="form-group col-md-3">
+              <p><label for="id_banho_leito">Banho no Leito:</label> <select class="form-control" type="text" name="banho_leito" step="0.01"
+                  id="id_banho_leito" /></p>
+                  <option value="" selected>---------</option>
+
+                  <option value="1">SIM</option>
+
+                  <option value="2">NÃO</option>
+
+            </select></p>
+        </div>
+            <div class="form-group col-md-4">
+              <p><label for="id_sinal_febre">Sinal febre:</label> <select class="form-control" type="text" name="sinal_febre" step="0.01"
+                  id="id_sinal_febre" /></p>
+                  <option value="FEBRE">38</option>
+
+                  <option value="FEBRIL">37.4&lt;38</option>
+
+                  <option value="FEBRIL">37.0</option>
+
+                  <option value="NORMAL" selected>ABAIXO 37.0</option>
+
+                  <option value="OUTROS">OUTROS VALORES</option>
+
+                  </select></p>
+              </div>
+            <div class="form-group col-md-4">
+              <p><label for="id_glicemia">Glicemia:</label> <select class="form-control" type="text" name="glicemia" step="0.01"
+                  id="id_glicemia" /></p>
+                  <option value="Normal:">Normal: inferior a 99 mg/dL</option>
+
+                  <option value="Pré-diabetes:">Pré-diabetes: entre 100 e 125 mg/dL</option>
+
+                  <option value="Diabetes:">Diabetes: superior a 126 mg/dL em dois dias diferentes</option>
+
+                  <option value="NORMAL" selected>OUTROS VALORES</option>
+
+                  </select></p>
+              </div>
+            <div class="form-group col-md-4">
+              <p><label for="id_frequencia_cardiaca">Frequencia cardiaca:</label> <select class="form-control" type="text" name="frequencia_cardiaca" step="0.01"
+                  id="id_frequencia_cardiaca" /></p>
+                  <option value="Primeiro:">Bradicardia 10 a 50 bpm</option>
+
+                  <option value="Segundo:">Normal 60 a 100 bpm</option>
+
+                  <option value="Terceiro:">Taquicardia 110 a 140</option>
+
+                  <option value="NORMAL" selected>OUTROS VALORES</option>
+
+                  </select></p>
+                </div>
+                <div class="form-group col-md-6">
+              <p><label for="id_cid">Doença Base:</label> <select class="form-control" type="text" name="cid" step="0.01"
+                  id="id_cid" /></p>
+                  <option value="" selected>---------</option>
+
+  <option value="Z93.1">GASTROSTOMIA</option>
+
+  <option value="Z93.0">TRAQUEOSTOMIA</option>
+
+  <option value="F03  ">DEMENCIA NE</option>
+
+  <option value="E14  ">DIABETES MELLITUS NE</option>
+
+  <option value="L89  ">ULCERA DE DECUBITO</option>
+
+  <option value="F00  ">DEMENCIA NA DOENC DE ALZHEIMER</option>
+
+  <option value="J44.9">DOENC PULMONAR OBSTRUTIVA CRONICA NE</option>
+
+  <option value="Z43.0">CUIDADOS A TRAQUEOSTOMIA</option>
+
+  <option value="N18  ">INSUF RENAL CRONICA</option>
+
+  <option value="E03.9">HIPOTIREOIDISMO NE</option>
+
+  <option value="I69.3">SEQUELAS DE INFARTO CEREBRAL</option>
+
+  <option value="E10  ">DIABETES MELLITUS INSULINO-DEPENDENTE</option>
+
+  <option value="E11  ">DIABETES MELLITUS NAO-INSULINO-DEPENDEMTE</option>
+
+  <option value="I63  ">INFARTO CEREBRAL</option>
+
+  <option value="G20  ">DOENC DE PARKINSON</option>
+
+  <option value="G30  ">DOENC DE ALZHEIMER</option>
+
+  <option value="F01  ">DEMENCIA VASCULAR</option>
+
+  <option value="I48  ">FLUTTER E FIBRILACAO ATRIAL</option>
+
+  <option value="I64  ">ACID VASC CEREBR NE COMO HEMORRAG ISQUEMICO</option>
+
+  <option value="Z43.1">CUIDADOS A GASTROSTOMIA</option>
+
+  <option value="OUTRO">OUTRAS DOENÇAS</option>
+
+</select></p>
+</div>    
+            <div class="form-group col-md-6">
+              <p><label for="id_horarios_medicacao">Horarios medicacao:</label> <select class="form-control" type="text" name="horarios_medicaca"maxlength="200" id="id_horarios_medicacao" /></p>
+                  <option value="Primeiro:">de 4 em 4 horas</option>
+
+  <option value="Segundo:">8 em 8 horas</option>
+
+  <option value="Terceiro:">12 em 12 horas</option>
+
+  <option value="NORMAL" selected>OUTROS VALORES</option>
+
+</select></p>
+</div>
+ 
+            <div class="form-group col-md-6">
+              <p><label for="id_medicamento">Medicamento:</label> <input class="form-control" type="text" name="medicamento"
+                  maxlength="200" id="id_medicamento" /></p>
+            </div>
+            <div class="form-group col-md-5">
+              <p><label for="id_convenios">Convênios:</label> <select class="form-control" type="text" name="convenios"
+                  maxlength="200" id="id_convenios" /></p>
+                  <option value="" selected>---------</option>
+
+  <option value="ALLIANZ">ALLIANZ</option>
+
+  <option value="FIOSAÚDE">FIOSAÚDE</option>
+
+  <option value="PAME">PAME</option>
+
+  <option value="UNAFISCO SAÚDE">UNAFISCO SAÚDE</option>
+
+  <option value="DIX">DIX</option>
+
+  <option value="GOLDEN CROSS">GOLDEN CROSS</option>
+
+  <option value="BRADESCO">BRADESCO</option>
+
+  <option value="BANCO CENTRAL DO BRASIL">BANCO CENTRAL DO BRASIL</option>
+
+  <option value="PARTICULAR">PARTICULAR</option>
+
+  <option value="CASSI">CASSI</option>
+
+  <option value="IPALERJ">IPALERJ</option>
+
+  <option value="AMIL">AMIL</option>
+
+  <option value="VALE S. A.">VALE S. A.</option>
+
+  <option value="BNDES/FAPES">BNDES/FAPES</option>
+
+  <option value="REAL GRANDEZA">REAL GRANDEZA</option>
+
+  <option value="PETROBRAS PETRÓLEO">PETROBRAS PETRÓLEO</option>
+
+  <option value="MEDISERVICE">MEDISERVICE</option>
+
+  <option value="SUL AMERICA">SUL AMERICA</option>
+
+  <option value="EMBRATEL">EMBRATEL</option>
+
+  <option value="TELOS">TELOS</option>
+
+  <option value="EMBRATELPRIMESYS">EMBRATELPRIMESYS</option>
+
+  <option value="PETROBRAS DISTRIBUIDORA">PETROBRAS DISTRIBUIDORA</option>
+
+  <option value="CARE PLUS">CARE PLUS</option>
+
+  <option value="BNDES/FAPES">BNDES/FAPES</option>
+
+  <option value="PARTICULAR">PARTICULAR</option>
+
+  <option value="UNAFISCO">UNAFISCO</option>
+
+  <option value="GOLDEN CROSS">GOLDEN CROSS</option>
+
+  <option value="SUL AMÉRICA">SUL AMÉRICA</option>
+
+  <option value="TELOS">TELOS</option>
+
+  <option value="ASSEFAZ">ASSEFAZ</option>
+
+  <option value="CLARO (EMBRATEL)">CLARO (EMBRATEL)</option>
+
+  <option value="ALLIANZ">ALLIANZ</option>
+
+  <option value="REAL GRANDEZA">REAL GRANDEZA</option>
+
+  <option value="CABERJ">CABERJ</option>
+
+  <option value="ASSEFAZ">ASSEFAZ</option>
+
+  <option value="INTERMÉDICA">INTERMÉDICA</option>
+
+  <option value="BANCO CENTRAL">BANCO CENTRAL</option>
+
+  <option value="INTERMÉDICA">INTERMÉDICA</option>
+
+  <option value="PETROBRAS PETROLEO">PETROBRAS PETROLEO</option>
+
+  <option value="GAMA SAÚDE">GAMA SAÚDE</option>
+
+  <option value="LIFE EMPRESARIAL">LIFE EMPRESARIAL</option>
+
+  <option value="UNIMED RIO">UNIMED RIO</option>
+
+  <option value="UNIMED COSTA VERDE">UNIMED COSTA VERDE</option>
+
+  <option value="CAMPERJ">CAMPERJ</option>
+
+  <option value="CAMARJ">CAMARJ</option>
+
+  <option value="CAMARJ">CAMARJ</option>
+
+  <option value="CENTRAL NACIONAL UNIMED">CENTRAL NACIONAL UNIMED</option>
+
+  <option value="INTEGRAL SAÚDE">INTEGRAL SAÚDE</option>
+
+  <option value="CIGNA">CIGNA</option>
+
+  <option value="UNIMED ARARUAMA ">UNIMED ARARUAMA </option>
+
+  <option value="CNEN">CNEN</option>
+
+  <option value="HOSPITAÚITAUSEG SAÚDE SA">HOSPITAÚITAUSEG SAÚDE SA</option>
+
+  <option value="HOSPITAÚ">HOSPITAÚ</option>
+
+  <option value="ELETROS">ELETROS</option>
+
+  <option value="CAMPERJ">CAMPERJ</option>
+
+  <option value="INTEGRAL SAÚDE">INTEGRAL SAÚDE</option>
+
+  <option value="TEST">TEST</option>
+
+  <option value="UNIMED SEGUROS">UNIMED SEGUROS</option>
+
+  <option value="CARE PLUS">CARE PLUS</option>
+
+  <option value="AMAFRERJ">AMAFRERJ</option>
+
+  <option value="VALE/PASA">VALE/PASA</option>
+
+  <option value="CASSI">CASSI</option>
+
+  <option value="PREVENT SENIOR">PREVENT SENIOR</option>
+
+  <option value="CNEN">CNEN</option>
+
+  <option value="FIOSAÚDE">FIOSAÚDE</option>
+
+  <option value="EMBRATELPRIMESYS">EMBRATELPRIMESYS</option>
+
+  <option value="EMBRATELSTAR ONE S/A">EMBRATELSTAR ONE S/A</option>
+
+  <option value="EMBRATELTELMEX">EMBRATELTELMEX</option>
+
+  <option value="EMBRATELTVSAT">EMBRATELTVSAT</option>
+
+  <option value="ELETROS">ELETROS</option>
+
+  <option value="BRADESCO S.A.">BRADESCO S.A.</option>
+
+  <option value="GAMA SAÚDE">GAMA SAÚDE</option>
+
+  <option value="CAPESESP">CAPESESP</option>
+
+  <option value="SOMPO SEGUROS SAUDE S/A">SOMPO SEGUROS SAUDE S/A</option>
+
+  <option value="AMIL">AMIL</option>
+
+  <option value="TASY">TASY</option>
+
+  <option value="CABERJ">CABERJ</option>
+
+  <option value="CAPESESP">CAPESESP</option>
+
+  <option value="CENTRAL NACIONAL UNIMED">CENTRAL NACIONAL UNIMED</option>
+
+  <option value="EMBRATELSTAR ONE S/A">EMBRATELSTAR ONE S/A</option>
+
+  <option value="EMBRATELTVSAT TELECOMUNICAÇÕES">EMBRATELTVSAT TELECOMUNICAÇÕES</option>
+
+  <option value="EMBRATELTELMEX DO BRASIL">EMBRATELTELMEX DO BRASIL</option>
+
+</select></p>
+</div>
+        <div class="form-group col-md-5">
+              <p><label for="id_hospital">Hospital:</label> <select class="form-control" type="text" name="hospital"
+                  maxlength="200" id="id_hospital" /></p>
+                  <option value="" selected>---------</option>
+
+  <option value="Hospital Barra DOr">Hospital Barra DOr</option>
+
+  <option value="Hospital Pasteur">Hospital Pasteur</option>
+
+  <option value="Hospital Samaritano Barra">Hospital Samaritano Barra</option>
+
+  <option value="Hospital Samaritano Botafogo">Hospital Samaritano Botafogo</option>
+
+  <option value="Hospital Evangélico">Hospital Evangélico</option>
+
+  <option value="Hospital Quinta DOr">Hospital Quinta DOr</option>
+
+  <option value="Hospital São Vicente de Paulo">Hospital São Vicente de Paulo</option>
+
+  <option value="Hospital Copa DOr">Hospital Copa DOr</option>
+
+  <option value="HCN_CHN">HCN_CHN</option>
+
+  <option value="Casa de Saúde São José">Casa de Saúde São José</option>
+
+  <option value="Hospital Assim Méier">Hospital Assim Méier</option>
+
+  <option value="Hospital Copa Star">Hospital Copa Star</option>
+
+  <option value="Hospital Vitória Barra">Hospital Vitória Barra</option>
+
+  <option value="Hospital Pró-Cardíaco">Hospital Pró-Cardíaco</option>
+
+  <option value="Hospital São Lucas">Hospital São Lucas</option>
+
+  <option value="Hospital das Américas">Hospital das Américas</option>
+
+  <option value="Hospital Badim">Hospital Badim</option>
+
+  <option value="Hospital Silvestre">Hospital Silvestre</option>
+
+  <option value="Hospital Mário Lioni">Hospital Mário Lioni</option>
+
+  <option value="Hospital Placi Niterói">Hospital Placi Niterói</option>
+
+  <option value="Hospital Israelita">Hospital Israelita</option>
+
+  <option value="Hospital de Clínicas de Jacarepaguá">Hospital de Clínicas de Jacarepaguá</option>
+
+  <option value="Hospital São Vicente da Gávea">Hospital São Vicente da Gávea</option>
+
+  <option value="Hospital Espanhol">Hospital Espanhol</option>
+
+  <option value="Hospital Mário Kroeff">Hospital Mário Kroeff</option>
+
+  <option value="Hospital Dr Balbino">Hospital Dr Balbino</option>
+
+  <option value="Hospital Norte DOr">Hospital Norte DOr</option>
+
+  <option value="Hospital Icaraí">Hospital Icaraí</option>
+
+  <option value="Hospital Panamericano">Hospital Panamericano</option>
+
+  <option value="Hospital Niterói DOr">Hospital Niterói DOr</option>
+
+  <option value="Hospital Rio Laranjeiras">Hospital Rio Laranjeiras</option>
+
+  <option value="Hospital e Clínica São Gonçalo">Hospital e Clínica São Gonçalo</option>
+
+  <option value="Clinicare">Clinicare</option>
+
+  <option value="Hospital Ordem Terceira ">Hospital Ordem Terceira </option>
+
+  <option value="Hospital Sírio Libanês">Hospital Sírio Libanês</option>
+
+  <option value="Hospital Rios DOr">Hospital Rios DOr</option>
+
+  <option value="Hospital Bela Lopes">Hospital Bela Lopes</option>
+
+  <option value="Casa de Saúde Pinheiro Machado">Casa de Saúde Pinheiro Machado</option>
+
+  <option value="Hospital Santa Marta">Hospital Santa Marta</option>
+
+  <option value="Hospital Caxias DOr">Hospital Caxias DOr</option>
+
+  <option value="Hospital Ingá">Hospital Ingá</option>
+
+  <option value="Hospital Alameda Niterói">Hospital Alameda Niterói</option>
+
+  <option value="Hospital Casa de Portugal">Hospital Casa de Portugal</option>
+
+  <option value="Hospital e Maternidade Santa Lúcia">Hospital e Maternidade Santa Lúcia</option>
+
+  <option value="Casa de Repouso_Asilo">Casa de Repouso_Asilo</option>
+
+  <option value="Residência">Residência</option>
+
+  <option value="Home Care">Home Care</option>
+
+  <option value="Pronto Socorro">Pronto Socorro</option>
+
+  <option value="Consultório">Consultório</option>
+
+  <option value="Outro Hospital">Outro Hospital</option>
+
+  <option value="Hospital Quali Ipanema">Hospital Quali Ipanema</option>
+
+  <option value="Hospital de Nova Iguaçu">Hospital de Nova Iguaçu</option>
+
+  <option value="Hospital Oeste Dor">Hospital Oeste Dor</option>
+
+  <option value="Hospital Rio Mar">Hospital Rio Mar</option>
+
+  <option value="Hospital Municipal Salgado Filho">Hospital Municipal Salgado Filho</option>
+
+  <option value="Hospital Santa Tereza">Hospital Santa Tereza</option>
+
+  <option value="Hospital Albert Einstein (SP)">Hospital Albert Einstein (SP)</option>
+
+  <option value="Hospital Oswaldo Cruz (SP)">Hospital Oswaldo Cruz (SP)</option>
+
+  <option value="Hospital NIG Barra">Hospital NIG Barra</option>
+
+  <option value="Hospital Vital">Hospital Vital</option>
+
+  <option value="Hospital Placi Niteroi">Hospital Placi Niteroi</option>
+
+  <option value="Hospital Placi Botafogo">Hospital Placi Botafogo</option>
+
+</select></p>
+</div>
+</div>
+
+
+          <div class="form-group col-md-15">
+            <p><label for="id_comentarios">Comentarios:</label>
+                <textarea name="comentarios" cols="140" rows="10" id="id_comentarios"></textarea></p>
+          </div>
+      </div>
+    </div>
+ <div class="form-row field-name">
+                <div>
+                         <label class="required" for="id_user">Usuario:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="user" required id="id_user">
+  <option value="">{{ user.get_username }}</option>
+</select>
+        <div class="form-row field-position">
+
+  </div>
+          <input type="submit" name="" value="Submit">
+      </form>
+                  
+               </tbody>
+</div>
+
+{% endblock %}

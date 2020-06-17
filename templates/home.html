@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+{% block title %}ROGTI{% endblock %}
+
+<style>
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.container:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+
+</style>
+
+
+</head>
+<body>
+{% block content %}
+	<div class="container">
+      <div class="jumbotron jumbotron-fluid">
+			<div class="container text-center">
+		  {% if not user.is_authenticated %}
+            <p><a class="btn btn-lg btn-primary"
+				  href="{% url 'registration_register' %}">Registre-se</a>
+			  &nbsp;
+              <a class="btn btn-lg btn-success"
+				  href="{% url 'auth_login' %}">Login</a>
+            </p>
+		  {% endif %}
+		</div> <!-- /.container -->
+	  </div> <!-- /.jumbotron -->
+    </div> <!-- /.container -->
+    
+  
+  <div class="center">
+    <img id="logotipo-clientes" src="/media/enf2.png" title="" alt="">
+  </div>  
+
+
+  
+  </div>
+</div>
+</div>
+ 
+{% endblock content %}
+
+</head>
+</body>

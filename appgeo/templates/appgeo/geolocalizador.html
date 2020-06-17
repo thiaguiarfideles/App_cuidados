@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Add localizacao</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ecn3T8O9pCZSmQ_4Fxw476S7ZgBtW40hUG4zyzJvb5VMatiaU6RM7FyJTUhFYQHJbW2zh7Chdojj9NSx2nGt9UXCDWU0jMC5id2tKK0H9e0" charset="UTF-8"></script><script type="text/javascript" src="/admin/jsi18n/"></script>
+<link href="/static/geoposition/geoposition.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyCJBnRLzxMdMI4mF3hAtg_yxC1jCiixtuU"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/geoposition/google.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+<style>
+    .article-img {
+  height: 85px;
+  width: 85px;
+  margin-right: 20px;
+  vertical-align: center;
+
+</style>
+</head>
+<body>
+    <div class="row justify-content-md-center">
+      <img class="rounded-circle article-img" src="/media/{{ user.userprofile.foto_perfil }}">
+  </div>
+        
+    <h8 style="text-align:center"><li><h1>{{ user.get_full_name }}</h1></li></h8>
+    
+    <div class="wrapper">
+      {% include '_navbar.html' %}
+{% block content %}
+{% endblock %}
+
+  </div> <!-- wrapper -->
+</body>
+<body class=" app-appgeo model-localizacao change-form"
+  data-admin-utc-offset="0">
+
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Add localizacao</h1>
+        <div id="content-main">
+
+
+
+<form action="" method="post" id="localizacao_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="VdX3wG83nJlVLjbRtkpsY6oDqw3wN6L0iuDotaWZHkLMuYHCTtFu2uO5OURxLacv">{% csrf_token %}
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_name">Nome Cliente:</label>
+                        
+                            <input type="text" name="name" class="vTextField" maxlength="100" required id="id_name">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    <fieldset class="module aligned ">
+    
+    
+    
+        
+                    
+                    
+                        <label class="required" for="id_position_0">Localização:</label>
+                        
+                            <div class="geoposition-widget" id="id_position" data-map-widget-height="480" data-map-options='{}' data-marker-options='{}'>
+    Latitude:
+    <input type="text" name="position_0" class="geoposition" value="None" />
+    Longitude:
+    <input type="text" name="position_1" class="geoposition" value="None" />
+</div>
+                        
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                         <label class="required" for="id_user">Usuario:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="user" required id="id_user">
+  <option value="">{{ user.get_username }}</option>
+</select>
+        <div class="form-row field-position">
+            
+            
+                <div>            
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+
+</div>
+
+
+
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="/static/admin/js/change_form.js"
+            
+                data-model-name="localizacao"
+            >
+    </script>
+
+
+
+
+<script type="text/javascript"
+        id="django-admin-prepopulated-fields-constants"
+        src="/static/admin/js/prepopulate_init.js"
+        data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

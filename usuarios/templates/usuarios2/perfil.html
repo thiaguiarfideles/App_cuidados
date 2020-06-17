@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Demo | sTimeline</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/sTimeline.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
+        <script src="js/sTimeline.bootstrap.js" type="text/javascript"></script>    
+        <script src="js/script.js" type="text/javascript"></script>     
+    </head>
+    <body>
+        <div id="wrapper">
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+                <div class="row">
+                    <div id="container" class="col-lg-12">                        
+                        <h1 class="well">sTimeline - Demo</h1>
+                        <hr />
+                        <!-- /////////////////////////////////////////////// -->
+                        <!-- Left col - Controls -->
+                        <div class="col-sm-2">
+                            <div id="timeline-controls">
+                                <div class="btn-group-vertical" role="group">                                    
+                                    <button type="button" class="btn btn-danger" onclick="sTimeline.removeLastEvent()"><span class="glyphicon glyphicon-minus"></span> Remove last Event</button>
+
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            Functions
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a onclick="sTimeline.autoAlign()">Auto Align Events</a></li>
+                                            <li><a onclick="sTimeline.sortById()">Sort by ID</a></li>
+                                            <li><a onclick="sTimeline.sortByTime()">Sort by Date</a></li>
+                                            <li><a onclick="sTimeline.sortByIcon()">Sort by Icons</a></li>
+                                            <li><a onclick="sTimeline.sortByCategory()">Sort by Category</a></li>
+                                            <li><a onclick="sTimeline.reverse()">Ascending / Descending</a></li>
+                                        </ul>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                        <!-- /////////////////////////////////////////////// -->
+                        <!-- Middle col - Timeline-->
+                        <div class="col-sm-8">
+                            <div id="timeline-wrapper"></div>
+                        </div>
+                        <!-- /////////////////////////////////////////////// -->
+                        <!-- Right col - Add new event -->
+                        <div class="col-sm-2">
+                            <!-- Add new event -->
+                            <label>Add new event:</label>
+                            <form>
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="recipient-name" class="control-label">Title:</label>
+                                    <input type="text" class="form-control" id="title">
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="recipient-name" class="control-label">Time:</label>
+                                    <input type="text" class="form-control" id="time">
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="message-text" class="control-label">Content:</label>
+                                    <textarea class="form-control" id="content"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="message-text" class="control-label">Gyphicon:</label>
+                                    <input class="form-control" id="glyphicon"></input>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-group-addon" for="message-text" class="control-label">Category:</label>
+                                    <input class="form-control" id="category"></input>
+                                </div>
+                                <div class="input-group">
+                                    <label class="btn btn-default">
+                                        <input id="inverted" type="checkbox" autocomplete="off"> Left or Right
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input id="initToggled" type="checkbox" autocomplete="off"> Initial toggled
+                                    </label>
+                                </div>
+                                <div class="btn-group-vertical">
+                                    <button type="button" class="btn btn-primary" onclick="randomEvent()" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span> Add Random Event</button>
+                                    <button type="button" class="btn btn-success" onclick="getValsAndCreateNewEvent()" data-dismiss="modal"><span class="glyphicon glyphicon-plus"></span> Add Event</button>
+                                </div>
+                            </form>
+                            <hr>
+                            <!-- Export json -->
+                            <label  for="export-json">Export JSON:</label>
+                            <div class="input-group">                                
+                                <textarea class="form-control" id="export-json"></textarea>                                
+                            </div>
+                            <button type="button" class="btn btn-success" onclick="var jsonString = sTimeline.exportJSON();$('#export-json').val(jsonString);"><span class="glyphicon glyphicon-refresh"></span> Generate JSON</button>
+                            <hr>
+                            <!-- Import json -->
+                            <form>
+                                
+                                <label  for="json string">Import JSON:</label>
+                                <div class="input-group">
+                                    <textarea class="form-control" id="json"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label class="btn btn-default">
+                                        <input id="append" type="checkbox" autocomplete="off"> Append to existing list
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-success" onclick="sTimeline.importJSON($('#json').val(), $('#append').prop('checked'))"><span class="glyphicon glyphicon-plus"></span> Import JSON</button>
+                            </form>
+                        </div>
+                        <!-- /////////////////////////////////////////////// -->
+                    </div>
+                </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    </body>
+</html>

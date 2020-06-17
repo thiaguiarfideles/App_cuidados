@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">TimeLine</h2>
+
+<div class="card">
+  <img src="\media\cuidados_paciente.jpg" alt="Optimus" style="width:100%">
+  <h1>Optimus</h1>
+  <p class="title">Historico, Evolução</p>
+  <p>ROGTI</p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+ </div>
+ <p><button>Contact</button></p>
+</div>
+
+</body>
+</html>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F7819F;
+    font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width containers */
+  .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+    left: 15px;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<div class="timeline">
+  <div class="text-justify">
+  <div class="container left">
+    <div class="content">
+      <h2>Evolução</h2>
+      <p>Descreva uma breve historia do Paciente</p>
+      <h5>Data Atual <p id="datas"></p> </h5>
+      
+      <html><table><textarea rows="10" cols="40" id='result'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+
+    </div>
+  </div>
+
+  <div class="timeline2">
+    <div class="text-justify">
+  <div class="container right">
+    <div class="content">
+      <h2>Evolução</h2>
+    <p>Descreva uma breve historia do Paciente</p>
+      <html><table><textarea rows="10" cols="40" id='timeline2'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+    </div>
+  </div>
+    <div class="timeline3">
+  <div class="container left">
+    <div class="content">
+      <h2>Evolução</h2>
+      <p>Descreva uma breve historia do Paciente</p>
+      <html><table><textarea rows="10" cols="40" id="timeline3">'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>Evolução</h2>
+      <p>Descreva uma breve historia do Paciente</p>
+      <html><table><textarea rows="10" cols="40" id='result'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>Evolução</h2>
+      <p>Descreva uma breve historia do Paciente</p>
+      <html><table><textarea rows="10" cols="40" id='result'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>Evolução</h2>
+      <p>Descreva uma breve historia do Paciente</p>
+      <html><table><textarea rows="10" cols="40" id='result'>Escreva aqui seu lembrete</textarea></table></html>
+    <button onClick="salvar()">Salvar</button>
+    </div>
+  </div>
+</div>
+<script>
+
+    function salvar() {
+        // Check browser support
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("text", document.getElementById("result").value);
+
+        } else {
+            document.getElementById("result").innerHTML = "Local Storage não suportado";
+        }
+    }
+
+    // Retrieve
+        document.getElementById("result").innerHTML = localStorage.getItem("text");
+    </script>
+
+<script>
+var d = new Date();
+document.getElementById("datas").innerHTML = d;
+</script>
+
+    </body>
+</html>

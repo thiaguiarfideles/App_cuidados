@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <script src="{% static 'usuarios/bootstrap-filestyle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'usuarios/style.css' %}">
+
+    <style>
+    .jumbotron { color:red; background-color:#FFFFFF;}
+  </style>
+</head>
+<body>
+   <body style="background-color:#FFFFFF;">
+   </body>
+  <div class="wrapper">
+      {% include '_navbar.html' %}
+{% block content %}
+{% endblock %}
+
+  </div> <!-- wrapper -->
+
+  <div id="page-footer">
+	<div class="container">
+
+	  <footer class="container-fluid bg-1 text-center">
+       <p>Visite o site <a href="https://www.rogti.com.br">www.rogti.com.br</a></p>
+	  </footer>
+    </div>
+
+  </div>
+</body>
+</html>

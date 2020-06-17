@@ -1,0 +1,188 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <script src="{% static 'usuarios/bootstrap-filestyle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'usuarios/style.css' %}">
+
+    <style>
+    .jumbotron { color:red; background-color:#FFFFFF;}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+      {% include '_navbar.html' %}
+{% block content %}
+{% endblock %}
+
+  </div> <!-- wrapper -->
+  
+  <div class="container">
+  <div class="card">
+  <div class="top-section">
+    <img src="/media/{{ user.userprofile.foto_perfil }}?auto=compress&cs=tinysrgb&dpr=2&h=540&w=540" alt=""/>
+  <div class="name">
+    <span>{{ user.get_full_name }}</span>
+    <br />
+    <span>{{ user.get_username }}</span>
+    <br />
+    <span>{{ user.userprofile.cidade }}</span>
+    </div>
+  </div>
+  <div class="info-section">
+    <h2>Meu Perfil
+  <div></div>
+    </h2>
+  <p>{{ user.userprofile.observacoes }}</p>
+    <h3>Contato
+  <div></div>
+     <span>{{ user.userprofile.telefone }}</span>
+    </h3>
+
+            <div class="social">
+              <a href="" class="fab fa-facebook-square"></a>
+              <a href="" class="fab fa-twitter"></a>
+              <a href="" class="fab fa-instagram"></a>
+              <a href="" class="fab fa-youtube"></a>
+              <a href="" class="fab fa-codepen"></a>
+            </div>
+          </div>
+        </div>
+</div>
+</div>
+<style>
+      * {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: linear-gradient(135deg, #46464b 0%, #212125 100%);
+}
+
+img {
+  width: 100%;
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 5rem;
+}
+
+.card {
+  width: 420px;
+  background: linear-gradient(135deg, #0ff0b3 0%, #036ed9 80%);
+  overflow: hidden;
+  font-family: sans-serif;
+  box-shadow: 0 0 40px #00000070;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  margin: 5rem auto;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem) scale(1.03);
+}
+
+.top-section {
+  position: relative;
+}
+
+.name {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.name span {
+  background: #333;
+  padding: 0 5px;
+}
+
+.name span:last-of-type {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.info-section {
+  padding: 0 40px 40px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+h2 {
+  padding: 1rem 0 1rem;
+}
+
+h2:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 40px;
+  background: #fff;
+}
+
+p {
+  text-align: justify;
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social a {
+  font-size: 12px;
+  color: linear-gradient(135deg, #ff57b9 0%, #a704fd 100%);
+  transition: all 0.4s;
+}
+
+.social a:hover {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+     <script>
+      $('ul.nav li.dropdown').hover(function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn(100);
+}, function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut(100);
+});
+    </script>
+
+   
+
+  </div>
+</body>
+</html>

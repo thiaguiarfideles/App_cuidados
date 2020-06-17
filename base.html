@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load model_field %}
+
+{% block content %}
+<h1></h1>
+
+<div class='row'>
+    <div class='col-sm-6 col-sm-offset-1'>
+
+            <tbody>
+              <body class=" app-appgeo model-localizacao change-form"
+  data-admin-utc-offset="0">
+
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Add localizacao</h1>
+        <div id="content-main">
+
+
+
+<form action="" method="post" id="localizacao_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="VdX3wG83nJlVLjbRtkpsY6oDqw3wN6L0iuDotaWZHkLMuYHCTtFu2uO5OURxLacv">{% csrf_token %}
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_name">Nome Cliente:</label>
+                        
+                            <input type="text" name="name" class="vTextField" maxlength="100" required id="id_name">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    <fieldset class="module aligned ">
+    
+    
+    
+        
+                    
+                    
+                        <label class="required" for="id_position_0">Localização:</label>
+                        
+                            <div class="geoposition-widget" id="id_position" data-map-widget-height="480" data-map-options='{}' data-marker-options='{}'>
+    Latitude:
+    <input type="text" name="position_0" class="geoposition" value="None" />
+    Longitude:
+    <input type="text" name="position_1" class="geoposition" value="None" />
+</div>
+                        
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                         <label class="required" for="id_user">Usuario:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="user" required id="id_user">
+  <option value="">{{ user.get_username }}</option>
+</select>
+        <div class="form-row field-position">
+            
+            
+                <div>            
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+
+</div>
+
+
+
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="/static/admin/js/change_form.js"
+            
+                data-model-name="localizacao"
+            >
+    </script>
+
+
+
+
+<script type="text/javascript"
+        id="django-admin-prepopulated-fields-constants"
+        src="/static/admin/js/prepopulate_init.js"
+        data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</div>
+
+        
+        <br class="clear">
+    </div>
+               </tbody>
+
+</div>
+
+{% endblock %}
