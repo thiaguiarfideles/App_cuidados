@@ -22,7 +22,7 @@ django-select2==6.1.0
 django-sparklines==0.1
 django-todo==2.4.9
 django-widget-tweaks==1.4.8
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 fanstatic==1.1
 idna==2.9
 jieba==0.38
